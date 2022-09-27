@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ============================================================================
-"""MindSpore Vision Video infer script."""
+"""MindSpore Vision Video eval script."""
 
 from mindspore import context, nn, load_checkpoint, load_param_into_net
 from mindspore.train import Model
@@ -25,7 +25,7 @@ from src.data.builder import build_dataset, build_transforms
 from src.models import build_model
 
 
-def infer(pargs):
+def eval(pargs):
     # set config context
     config = Config(pargs.config)
     context.set_context(**config.context)
@@ -63,5 +63,5 @@ def infer(pargs):
 
 if __name__ == '__main__':
     args = parse_args()
-    result = infer(args)
+    result = eval(args)
     print(result)
