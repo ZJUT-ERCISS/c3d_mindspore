@@ -1,5 +1,5 @@
 # model architecture
-model_name: "c3d"   # 模型名
+model_name: "c3d_ucf101"   # 模型名
 
 #global config
 device_target: "GPU"
