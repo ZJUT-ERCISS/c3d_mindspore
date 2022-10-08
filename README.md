@@ -48,6 +48,12 @@ Dataset used: [UCF101](https://www.crcv.ucf.edu/data/UCF101.php)
 
 ## [Quick Start](#contents)
 
+- Requirements Installation
+Use the following commands to install dependencies:
+```shell
+pip install -r requirements.txt
+```
+
 After installing MindSpore via the official website, you can start training and evaluation as follows:
 
 - Download pretrained model from [c3d.ckpt](https://zjuteducn-my.sharepoint.com/:u:/g/personal/201906010313_zjut_edu_cn/EbVF6SuKthpGj046abA37jkBkfkhzLm36F8NJmH2Do3jhg?e=xh32kW)
@@ -135,7 +141,7 @@ It is recommended to run with scripts or general [train.py](train.py), [eval.py]
 | Model Version       | C3D                                                       |
 | Resource            | Nvidia 3090Ti                                             |
 | uploaded Date       | 09/06/2022 (month/day/year)                               |
-| MindSpore Version   | 1.7.0                                                     |
+| MindSpore Version   | 1.6.1                                                     |
 | Dataset             | UCF101                                                    |
 | Training Parameters | epoch = 50,  batch_size = 8                               |
 | Optimizer           | SGD                                                       |
