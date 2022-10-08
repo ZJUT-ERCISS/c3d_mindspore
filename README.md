@@ -55,6 +55,7 @@ After installing MindSpore via the official website, you can start training and 
 
 Refer to [src/config/c3d_ucf101.yaml](src/config/c3d_ucf101.yaml). We support some parameter configurations for quick start.
 
+Please run the following command in root directory of `c3d_mindspore`. 
 
 ### Run on GPU
 
@@ -103,7 +104,7 @@ cd scripts
 # run training example
 bash run_standalone_train_gpu.sh [CONFIG_PATH]
 # run distributed training example
-bash run_distribute_train_gpu.sh [CONFIG_PATH]
+bash run_distribute_train_gpu.sh [CONFIG_PATH] [NUM_DEVICES]
 # run evaluation example
 bash run_standalone_eval_gpu.sh [CONFIG_PATH]
 ```
@@ -114,9 +115,9 @@ Run training example
 ```bash
 bash run_standalone_train_gpu.sh src/config/c3d_ucf101.yaml
 ```
-Run evaluation example
+Run distribute training example
 ```bash
-bash run_standalone_eval_gpu.sh src/config/c3d_ucf101.yaml
+bash run_distribute_train_gpu.sh src/config/c3d_ucf101.yaml 2
 ```
 It is recommended to run with scripts or general [train.py](train.py), [eval.py](eval.py), because it can use yaml file to save and adjust parameters conveniently.
 

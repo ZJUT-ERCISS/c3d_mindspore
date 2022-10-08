@@ -14,12 +14,14 @@
 # ============================================================================
 """MindSpore Vision Video eval script."""
 
+from subprocess import call
 from mindspore import context, nn, load_checkpoint, load_param_into_net
 from mindspore.train import Model
 from mindspore.nn.metrics import Accuracy
 
 from src.utils.check_param import Validator, Rel
 from src.utils.config import parse_args, Config
+from src.utils.callbacks import EvalLossMonitor
 from src.loss.builder import build_loss
 from src.data.builder import build_dataset, build_transforms
 from src.models import build_model
@@ -44,7 +46,7 @@ def eval(pargs):
     network_loss = build_loss(config.loss)
 
     # load pretrain model
-    param_dict = load_checkpoint(config.infer.pretrained_model)
+    param_dict = load_checkpoint(config.eval.pretrained_model)
     load_param_into_net(network, param_dict)
 
     # Define eval_metrics.
@@ -56,7 +58,8 @@ def eval(pargs):
                   metrics={"Accuracy": Accuracy()})
 
     # Begin to eval.
-    result = model.eval(dataset_eval)
+    result = model.eval(dataset_eval,
+                        callbacks=[EvalLossMonitor(model)])
 
     return result
 
